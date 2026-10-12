@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Кнопка при прокрутке — Мои накопления</title>
+  <style>
+    :root { font-family: Arial, Helvetica, sans-serif; color: #1d2023; background: #f2f3f7; }
+    * { box-sizing: border-box; }
+    body { width: 100%; height: 100vh; height: 100dvh; margin: 0; overflow: hidden; }
+    .phone { position: relative; width: 100%; height: 100%; overflow: hidden; background: #f2f3f7; }
+    .scrollport { position: absolute; inset: 0; overflow-y: auto; overscroll-behavior: contain; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+    .scrollport::-webkit-scrollbar { display: none; }
+    .content { padding-top: calc(70px + env(safe-area-inset-top)); }
+    .card { width: 100%; margin-bottom: 12px; padding: 12px 0; border-radius: 32px; background: #fff; overflow: hidden; }
+    .card-title { padding: 14px 20px 8px; color: #626c77; font-size: 14px; font-weight: 700; line-height: 20px; text-transform: uppercase; }
+    .product { position: relative; display: flex; align-items: center; min-height: 84px; padding: 9px 20px; gap: 12px; }
+    .product.compact { min-height: 72px; }
+    .icon { position: relative; display: grid; flex: none; place-items: center; width: 52px; height: 52px; border-radius: 16px; overflow: hidden; background: #f2f3f7; }
+    .icon.coin::before { content: ""; position: absolute; width: 48px; height: 48px; left: 10px; top: 12px; border-radius: 50%; background: linear-gradient(135deg, #c4cbe0, #8189a7); }
+    .icon.deposit img { width: 52px; height: 52px; }
+    .icon img { position: relative; width: 24px; height: 24px; object-fit: contain; }
+    .icon.plus img { width: 24px; height: 24px; }
+    .product-copy { flex: 1; min-width: 0; }
+    .product-name, .product-note { color: #626c77; font-size: 14px; line-height: 18px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .product-name.strong { color: #1d2023; font-weight: 600; }
+    .product-value { margin: 4px 0 3px; font-size: 17px; line-height: 20px; font-weight: 700; white-space: nowrap; }
+    .product-gain { position: absolute; right: 20px; top: 29px; color: #78a917; font-size: 16px; white-space: nowrap; }
+    .intro { height: 220px; }
+    .accounts { height: 388px; }
+    .deposits { height: 304px; }
+    .tail { height: calc(92px + env(safe-area-inset-bottom)); }
+    .topbar { position: absolute; z-index: 5; top: 0; left: 0; right: 0; height: calc(70px + env(safe-area-inset-top)); pointer-events: none; background: linear-gradient(#fff 0%, #fffffff7 78%, #ffffff00 100%); }
+    .nav { height: 70px; margin-top: env(safe-area-inset-top); display: flex; align-items: center; justify-content: space-between; padding: 0 26px; }
+    .nav-title { font-size: 18px; line-height: 24px; font-weight: 700; letter-spacing: -.4px; }
+    .nav-icon { width: 22px; height: 22px; display: grid; place-items: center; }
+    .nav-icon img, .eye img { display: block; width: 24px; height: 24px; }
+    .eye { width: 24px; height: 24px; }
+    .bottom-scrim { position: absolute; left: 0; right: 0; bottom: 0; z-index: 6; height: 100px; pointer-events: none; background: linear-gradient(#f2f3f700, #f2f3f7 65%); }
+    .action { position: absolute; z-index: 7; left: 50%; bottom: calc(16px + env(safe-area-inset-bottom)); transform: translateX(-50%); width: 173px; height: 44px; border: 0; border-radius: 22px; background: #1d2023; color: white; font: 700 12px/16px Arial, Helvetica, sans-serif; letter-spacing: .3px; white-space: nowrap; cursor: pointer; touch-action: manipulation; }
+    .action:focus-visible { outline: 3px solid #7ea8ff; outline-offset: 3px; }
+  </style>
+</head>
+<body>
+  <div class="phone" aria-label="Экран моих накоплений">
+    <main class="scrollport" id="scrollport" aria-label="Список накоплений">
+      <div class="content">
+        <section class="card intro" aria-label="Мои продукты">
+          <div class="card-title">Мои продукты</div>
+          <div class="product">
+            <div class="icon coin"><img src="assets/a7757.svg" alt=""></div>
+            <div class="product-copy"><div class="product-name">МТС Накопления</div><div class="product-value">30 000,32 ₽</div><div class="product-note">12,5% на минимальный остаток</div></div>
+          </div>
+          <div class="product compact">
+            <div class="icon plus" aria-hidden="true"><img src="assets/6fc46.svg" alt=""></div>
+            <div class="product-copy"><div class="product-name strong">Кешбокс</div><div class="product-note" style="margin-top: 6px">До 14% с ежедневной выплатой</div></div>
+          </div>
+        </section>
+
+        <section class="card accounts" aria-label="Накопительные счета">
+          <div class="card-title">Накопительные счета</div>
+          <div class="product"><div class="icon coin"><img src="assets/a7757.svg" alt=""></div><div class="product-copy"><div class="product-name">МТС Счёт</div><div class="product-value">467 100 ₽</div><div class="product-note">15,5% на ежедневный остаток</div></div><div class="product-gain">+10 032 ₽</div></div>
+          <div class="product"><div class="icon coin"><img src="assets/a7757.svg" alt=""></div><div class="product-copy"><div class="product-name">МТС Счёт</div><div class="product-value">30 000,32 ₽</div><div class="product-note">12,5% на минимальный остаток</div></div><div class="product-gain">+10 032 ₽</div></div>
+          <div class="product"><div class="icon coin"><img src="assets/a7757.svg" alt=""></div><div class="product-copy"><div class="product-name">МТС Счёт</div><div class="product-value">30 000,32 ₽</div><div class="product-note">12,5% на минимальный остаток</div></div><div class="product-gain">+10 032 ₽</div></div>
+          <div class="product compact"><div class="icon plus" aria-hidden="true"><img src="assets/6fc46.svg" alt=""></div><div class="product-copy"><div class="product-name strong">Кешбокс</div><div class="product-note" style="margin-top: 6px">До 14% с ежедневной выплатой</div></div></div>
+        </section>
+
+        <section class="card deposits" aria-label="Вклады">
+          <div class="card-title">Вклады</div>
+          <div class="product"><div class="icon deposit"><img src="assets/1f81d.svg" alt=""></div><div class="product-copy"><div class="product-name">МТС Вклад плюс</div><div class="product-value">0 ₽</div><div class="product-note">Пополните до 25 августа 2026</div></div></div>
+          <div class="product"><div class="icon deposit"><img src="assets/1f81d.svg" alt=""></div><div class="product-copy"><div class="product-name">Вклад МТС Максимум</div><div class="product-value">154 900 ₽</div><div class="product-note">18,3%, потратьте до 15.02 ещё 38 000 ₽</div></div></div>
+          <div class="product compact"><div class="icon plus" aria-hidden="true"><img src="assets/6fc46.svg" alt=""></div><div class="product-copy"><div class="product-name strong">Вклад МТС Деньги</div><div class="product-note" style="margin-top: 6px">До 14,5% в рублях</div></div></div>
+        </section>
+        <div class="tail" aria-hidden="true"></div>
+      </div>
+    </main>
+
+    <header class="topbar" aria-label="Заголовок страницы">
+      <div class="nav"><span class="nav-icon" aria-hidden="true"><img src="assets/a4b84.svg" alt=""></span><span class="nav-title">652 000,32 ₽</span><span class="eye" aria-hidden="true"><img src="assets/64272.svg" alt=""></span></div>
+    </header>
+    <div class="bottom-scrim" aria-hidden="true"></div>
+    <button class="action" id="action" type="button">НОВЫЙ ПРОДУКТ</button>
+  </div>
+  <script>
+    const scrollport = document.getElementById('scrollport');
+    const action = document.getElementById('action');
+    const expansionDistance = 180;
+
+    function updateButtonFromScroll() {
+      const maxScroll = Math.max(0, scrollport.scrollHeight - scrollport.clientHeight);
+      const remaining = Math.max(0, maxScroll - scrollport.scrollTop);
+      const progress = Math.max(0, Math.min(1, 1 - remaining / expansionDistance));
+      const fullWidth = scrollport.clientWidth;
+      action.style.width = `${173 + (fullWidth - 40 - 173) * progress}px`;
+      action.style.height = `${44 + 8 * progress}px`;
+      action.style.borderRadius = `${22 - 6 * progress}px`;
+      action.setAttribute('aria-label', `Новый продукт, кнопка раскрыта на ${Math.round(progress * 100)}%`);
+    }
+
+    scrollport.addEventListener('scroll', updateButtonFromScroll, { passive: true });
+    window.addEventListener('resize', updateButtonFromScroll);
+    updateButtonFromScroll();
+  </script>
+</body>
+</html>
