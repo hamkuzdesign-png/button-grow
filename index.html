@@ -36,7 +36,7 @@
     .nav-icon { width: 22px; height: 22px; display: grid; place-items: center; }
     .nav-icon img, .eye img { display: block; width: 24px; height: 24px; }
     .eye { width: 24px; height: 24px; }
-    .action { position: absolute; z-index: 7; left: 50%; bottom: calc(var(--action-bottom-gap) + env(safe-area-inset-bottom)); transform: translateX(-50%); width: 173px; height: 44px; border: 0; border-radius: 22px; background: #1d2023; color: white; font: 700 12px/16px Arial, Helvetica, sans-serif; letter-spacing: .3px; white-space: nowrap; cursor: pointer; touch-action: manipulation; }
+    .action { position: absolute; z-index: 7; left: 50%; bottom: calc(var(--action-bottom-gap) + env(safe-area-inset-bottom)); transform: translateX(-50%); width: 173px; height: 44px; border: 0; border-radius: 16px; background: #1d2023; color: white; font: 700 12px/16px Arial, Helvetica, sans-serif; letter-spacing: .3px; white-space: nowrap; cursor: pointer; touch-action: manipulation; }
     .action:focus-visible { outline: 3px solid #7ea8ff; outline-offset: 3px; }
   </style>
 </head>
@@ -93,7 +93,7 @@
       const fullWidth = Math.max(173, scrollport.clientWidth - 2 * parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--action-edge-gap')));
       action.style.width = `${173 + (fullWidth - 173) * progress}px`;
       action.style.height = `${44 + (parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--action-expanded-height')) - 44) * progress}px`;
-      action.style.borderRadius = `${22 - 6 * progress}px`;
+      action.style.borderRadius = '16px';
       action.setAttribute('aria-label', `Новый продукт, кнопка раскрыта на ${Math.round(progress * 100)}%`);
 
       const atEnd = maxScroll > 0 && remaining <= 1;
