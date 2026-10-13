@@ -18,7 +18,7 @@
     .scrollport { position: fixed; inset: 0; overflow-y: auto; overflow-x: hidden; overscroll-behavior-y: none; -webkit-overflow-scrolling: touch; scrollbar-width: none; touch-action: pan-y; background: var(--bg); }
     .scrollport::-webkit-scrollbar { display: none; }
     .screen { position: relative; min-height: 100%; display: flex; flex-direction: column; gap: 12px; padding-bottom: 0; isolation: isolate; }
-    .hero-gradient { position: absolute; z-index: -1; top: 0; left: 0; right: 0; height: 490px; pointer-events: none; overflow: hidden; background: #fff url('./saving-hero-gradient.png') center top / cover no-repeat; border-radius: 0 0 32px 32px; filter: blur(10px); transform: scale(1.02); }
+    .hero-gradient { position: absolute; z-index: -1; top: 0; left: 0; right: 0; height: 490px; pointer-events: none; overflow: hidden; background: #fff url('./saving-hero-gradient.png?v=20261013-1122') center top / cover no-repeat; border-radius: 0 0 32px 32px; filter: blur(10px); transform: scale(1.02); }
     .hero-gradient::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(214,214,255,0) 40%, rgba(214,214,255,.5) 80%); }
     .hero { position: relative; flex: none; height: 384px; padding: 0; color: var(--ink); }
     .hero-controls { position: absolute; top: calc(env(safe-area-inset-top) + 64px); left: 16px; right: 16px; display: flex; justify-content: space-between; align-items: center; height: 44px; }
@@ -70,18 +70,18 @@
       <div class="hero-gradient" aria-hidden="true"></div>
       <header class="hero" id="hero">
         <div class="hero-controls">
-          <button class="icon-button" type="button" aria-label="Назад"><img src="./saving-back.svg" alt=""></button>
-          <button class="icon-button" type="button" aria-label="Скрыть баланс"><img src="./saving-hide.svg" alt=""></button>
+          <button class="icon-button" type="button" aria-label="Назад"><img src="./saving-back.svg?v=20261013-1122" alt=""></button>
+          <button class="icon-button" type="button" aria-label="Скрыть баланс"><img src="./saving-hide.svg?v=20261013-1122" alt=""></button>
         </div>
         <div class="hero-balance" id="heroBalance">
           <div class="hero-title" id="heroTitle">Мои накопления</div>
           <div class="hero-amount">652 000<span class="amount-muted">,32 ₽</span></div>
-          <div class="hero-income"><span class="income-pill">+8 546 ₽</span><span class="income-caption">за всё время</span><img src="./saving-sort.svg" alt=""></div>
+          <div class="hero-income"><span class="income-pill">+8 546 ₽</span><span class="income-caption">за всё время</span><img src="./saving-sort.svg?v=20261013-1122" alt=""></div>
         </div>
         <div class="quick-actions" id="quickActions">
-          <div class="quick-action"><img src="./saving-plus.svg" alt=""><span>Пополнить</span></div>
-          <div class="quick-action"><img src="./saving-arrow-up.svg" alt=""><span>Перевести</span></div>
-          <div class="quick-action"><img src="./saving-analytics.svg" alt=""><span>Аналитика</span></div>
+          <div class="quick-action"><img src="./saving-plus.svg?v=20261013-1122" alt=""><span>Пополнить</span></div>
+          <div class="quick-action"><img src="./saving-arrow-up.svg?v=20261013-1122" alt=""><span>Перевести</span></div>
+          <div class="quick-action"><img src="./saving-analytics.svg?v=20261013-1122" alt=""><span>Аналитика</span></div>
         </div>
       </header>
 
@@ -119,7 +119,7 @@
   </main>
 
   <header class="topbar" id="topbar" aria-label="Навигация">
-    <div class="topbar-nav"><button class="icon-button" type="button" aria-label="Назад"><img src="./saving-back.svg" alt=""></button><button class="icon-button" type="button" aria-label="Скрыть баланс"><img src="./saving-hide.svg" alt=""></button></div>
+    <div class="topbar-nav"><button class="icon-button" type="button" aria-label="Назад"><img src="./saving-back.svg?v=20261013-1122" alt=""></button><button class="icon-button" type="button" aria-label="Скрыть баланс"><img src="./saving-hide.svg?v=20261013-1122" alt=""></button></div>
     <div class="topbar-amount">652 000,32 ₽</div>
   </header>
   <button class="action" id="action" type="button" aria-label="Новый продукт">НОВЫЙ ПРОДУКТ</button>
