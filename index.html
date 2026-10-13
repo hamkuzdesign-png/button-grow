@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Кнопка при прокрутке — Мои накопления</title>
   <style>
+    @font-face { font-family: 'MTS Wide'; font-style: normal; font-weight: 700; font-display: swap; src: url('./fonts/MTSWide-Bold.woff2') format('woff2'); }
     :root { --action-edge-gap: 16px; --action-bottom-gap: 16px; --action-expanded-height: 52px; --action-list-gap: 16px; font-family: Arial, Helvetica, sans-serif; color: #1d2023; background: #f2f3f7; }
     * { box-sizing: border-box; }
     body { width: 100%; height: 100vh; height: 100dvh; margin: 0; overflow: hidden; overscroll-behavior: none; }
@@ -36,7 +37,7 @@
     .nav-icon { width: 22px; height: 22px; display: grid; place-items: center; }
     .nav-icon img, .eye img { display: block; width: 24px; height: 24px; }
     .eye { width: 24px; height: 24px; }
-    .action { position: absolute; z-index: 7; left: 50%; bottom: calc(var(--action-bottom-gap) + env(safe-area-inset-bottom)); transform: translateX(-50%); width: 173px; height: 44px; border: 0; border-radius: 16px; background: #1d2023; color: white; font: 700 12px/16px Arial, Helvetica, sans-serif; letter-spacing: .3px; white-space: nowrap; cursor: pointer; touch-action: manipulation; }
+    .action { position: absolute; z-index: 7; left: 50%; bottom: calc(var(--action-bottom-gap) + env(safe-area-inset-bottom)); transform: translateX(-50%); width: 173px; height: 44px; border: 0; border-radius: 16px; background: #1d2023; color: white; font: 700 12px/16px 'MTS Wide', Arial, Helvetica, sans-serif; letter-spacing: .6px; white-space: nowrap; cursor: pointer; touch-action: manipulation; }
     .action:focus-visible { outline: 3px solid #7ea8ff; outline-offset: 3px; }
   </style>
 </head>
